@@ -1,0 +1,9 @@
+node_modules/
+dist/
+dist-examples/
+coverage/
+bench/results/
+.DS_Store
+*.log
+.vite/
+.eslintcache
