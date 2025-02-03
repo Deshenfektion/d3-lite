@@ -1,0 +1,6 @@
+dist/
+dist-examples/
+coverage/
+node_modules/
+bench/results/
+*.csv
