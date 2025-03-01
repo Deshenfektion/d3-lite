@@ -86,8 +86,8 @@ export function niceDomain(start: number, stop: number, count: number): [number,
       lo = Math.floor(lo / step) * step;
       hi = Math.ceil(hi / step) * step;
     } else if (step < 0) {
-      lo = Math.ceil(lo * -step) / -step;
-      hi = Math.floor(hi * -step) / -step;
+      lo = Math.ceil(lo * step) / step;
+      hi = Math.floor(hi * step) / step;
     } else {
       break;
     }
