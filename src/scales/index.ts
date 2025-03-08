@@ -5,3 +5,4 @@ export * from './log.ts';
 export * from './pow.ts';
 export * from './time.ts';
 export * from './ordinal.ts';
+export * from './band.ts';
