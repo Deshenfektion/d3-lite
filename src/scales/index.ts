@@ -7,3 +7,4 @@ export * from './time.ts';
 export * from './ordinal.ts';
 export * from './band.ts';
 export * from './discretizing.ts';
+export * from './color.ts';
