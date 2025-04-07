@@ -153,7 +153,7 @@ export function bisectRight(array: readonly number[], value: number): number {
   return lo;
 }
 
-export function group<T, K>(values: Iterable<T>, key: (value: T) => K): Map<K, T[]> {
+export function groupItems<T, K>(values: Iterable<T>, key: (value: T) => K): Map<K, T[]> {
   const map = new Map<K, T[]>();
   for (const value of values) {
     const k = key(value);
@@ -169,7 +169,7 @@ export function rollup<T, K, R>(
   key: (value: T) => K,
   reduce: (bucket: T[]) => R
 ): Map<K, R> {
-  const grouped = group(values, key);
+  const grouped = groupItems(values, key);
   const out = new Map<K, R>();
   for (const [k, bucket] of grouped) out.set(k, reduce(bucket));
   return out;

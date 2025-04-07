@@ -4,7 +4,7 @@ import {
   bisectRight,
   deviation,
   extent,
-  group,
+  groupItems,
   last,
   max,
   mean,
@@ -98,7 +98,7 @@ describe('grouping', () => {
   ];
 
   it('groups by key preserving order', () => {
-    const grouped = group(rows, (r) => r.team);
+    const grouped = groupItems(rows, (r) => r.team);
     expect([...grouped.keys()]).toEqual(['a', 'b']);
     expect(grouped.get('a')).toHaveLength(2);
   });
