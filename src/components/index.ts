@@ -5,3 +5,4 @@ export * from './legend.ts';
 export * from './marks.ts';
 export * from './bar-chart.ts';
 export * from './line-chart.ts';
+export * from './scatter-plot.ts';
