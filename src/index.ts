@@ -9,5 +9,6 @@ export * from './layout/index.ts';
 export * from './encode/index.ts';
 export * from './renderer/index.ts';
 export * from './state/index.ts';
+export * from './interaction/index.ts';
 export * from './components/index.ts';
 export type * from './types/index.ts';

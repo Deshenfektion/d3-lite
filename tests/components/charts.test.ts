@@ -266,7 +266,7 @@ describe('scatterPlot', () => {
   ];
 
   it('renders one mark per row', () => {
-    const chart = scatterPlot(host, { data: points, x: 'defects', y: 'throughput' });
+    scatterPlot(host, { data: points, x: 'defects', y: 'throughput' });
     expect(host.querySelectorAll('circle')).toHaveLength(3);
   });
 
@@ -287,7 +287,7 @@ describe('scatterPlot', () => {
       throughput: index * 2,
       line,
     }));
-    const chart = scatterPlot(host, {
+    scatterPlot(host, {
       data: many,
       x: 'defects',
       y: 'throughput',
@@ -301,7 +301,7 @@ describe('scatterPlot', () => {
   });
 
   it('scales marker radius from a size field', () => {
-    const chart = scatterPlot(host, {
+    scatterPlot(host, {
       data: [
         { x: 1, y: 1, weight: 1 },
         { x: 2, y: 2, weight: 100 },
