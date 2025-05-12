@@ -48,17 +48,16 @@ export function isRow(value: unknown): value is Row {
   return true;
 }
 
-export function toNumber(value: Primitive): number {
+export function toNumber(value: Primitive | undefined): number {
   if (typeof value === 'number') return value;
   if (typeof value === 'boolean') return value ? 1 : 0;
   if (value instanceof Date) return value.getTime();
-  if (value === null) return Number.NaN;
-  const parsed = Number(value);
-  return parsed;
+  if (value == null) return Number.NaN;
+  return Number(value);
 }
 
-export function toStringKey(value: Primitive): string {
-  if (value === null) return '';
+export function toStringKey(value: Primitive | undefined): string {
+  if (value == null) return '';
   if (value instanceof Date) return value.toISOString();
   return String(value);
 }
