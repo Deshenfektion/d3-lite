@@ -1,0 +1,36 @@
+{
+  "targets": [
+    {
+      "region": "North",
+      "quarterlyTarget": 1323,
+      "owner": {
+        "name": "North desk",
+        "headcount": 7
+      }
+    },
+    {
+      "region": "South",
+      "quarterlyTarget": 977,
+      "owner": {
+        "name": "South desk",
+        "headcount": 10
+      }
+    },
+    {
+      "region": "East",
+      "quarterlyTarget": 835,
+      "owner": {
+        "name": "East desk",
+        "headcount": 5
+      }
+    },
+    {
+      "region": "West",
+      "quarterlyTarget": 1197,
+      "owner": {
+        "name": "West desk",
+        "headcount": 8
+      }
+    }
+  ]
+}
