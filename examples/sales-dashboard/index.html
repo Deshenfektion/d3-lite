@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sales dashboard — d3-lite</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="page">
+      <h1>Sales dashboard</h1>
+      <p>
+        Two sources joined at load time: a CSV of monthly revenue by region and segment, and a
+        nested JSON file of quarterly targets. Every chart below is the same
+        <code>barChart</code> / <code>lineChart</code> component with a different encoding.
+        <a href="../index.html">All examples</a>
+      </p>
+    </header>
+
+    <main>
+      <section class="tiles" id="tiles"></section>
+
+      <section class="card">
+        <h2>Revenue by region</h2>
+        <p class="sub">Stacked by segment. Click a legend entry to hide a segment.</p>
+        <div class="controls" id="segment-controls"></div>
+        <div class="chart-host" id="by-region"></div>
+      </section>
+
+      <div class="grid-2">
+        <section class="card">
+          <h2>Monthly revenue</h2>
+          <p class="sub">One line per region, hover for values.</p>
+          <div class="chart-host" id="monthly"></div>
+        </section>
+
+        <section class="card">
+          <h2>Attainment against target</h2>
+          <p class="sub">Quarterly target from the JSON source.</p>
+          <div class="chart-host" id="attainment"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2>Underlying data</h2>
+        <p class="sub">The table view that the colour-contrast relief rule requires.</p>
+        <div id="table"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
