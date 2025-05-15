@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quality metrics — d3-lite</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="page">
+      <h1>Quality metrics</h1>
+      <p>
+        Distribution and correlation views over 240 production batches. The scatter plot uses a
+        quadtree for hit testing, so hover stays cheap as the point count grows.
+        <a href="../index.html">All examples</a>
+      </p>
+    </header>
+
+    <main>
+      <section class="tiles" id="tiles"></section>
+
+      <div class="grid-2">
+        <section class="card">
+          <h2>Defect rate distribution</h2>
+          <p class="sub">Bin count is recomputed on the fly.</p>
+          <div class="controls">
+            <label>
+              Bins
+              <input type="range" id="bins" min="4" max="40" value="14" />
+            </label>
+            <span class="status" id="bin-readout"></span>
+          </div>
+          <div class="chart-host" id="distribution"></div>
+        </section>
+
+        <section class="card">
+          <h2>Throughput vs defect rate</h2>
+          <p class="sub">Coloured by production line, sized by yield.</p>
+          <div class="controls" id="line-controls"></div>
+          <div class="chart-host" id="correlation"></div>
+        </section>
+      </div>
+
+      <section class="card">
+        <h2>Yield by line and shift</h2>
+        <p class="sub">Grouped bars from the same reusable component.</p>
+        <div class="chart-host" id="yield"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
