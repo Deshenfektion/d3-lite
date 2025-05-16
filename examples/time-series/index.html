@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Time-series analytics — d3-lite</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="page">
+      <h1>Time-series analytics</h1>
+      <p>
+        A week of request traffic at 30-minute resolution, with a deliberate latency incident.
+        Latency and request volume are on separate charts rather than a dual axis.
+        <a href="../index.html">All examples</a>
+      </p>
+    </header>
+
+    <main>
+      <section class="tiles" id="tiles"></section>
+
+      <section class="card">
+        <h2>Request latency</h2>
+        <p class="sub">p50 and p95, drag on the volume chart below to filter the range.</p>
+        <div class="controls">
+          <button type="button" id="live" aria-pressed="false">Start live feed</button>
+          <button type="button" id="reset">Reset range</button>
+          <span class="status" id="range-readout"></span>
+        </div>
+        <div class="chart-host" id="latency"></div>
+      </section>
+
+      <section class="card">
+        <h2>Request volume</h2>
+        <p class="sub">Drag horizontally to brush a time range.</p>
+        <div class="chart-host" id="volume"></div>
+      </section>
+
+      <section class="card">
+        <h2>Error rate</h2>
+        <p class="sub">Same range, area encoding.</p>
+        <div class="chart-host" id="errors"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
