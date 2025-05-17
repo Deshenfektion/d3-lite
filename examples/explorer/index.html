@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Dataset explorer — d3-lite</title>
+    <link rel="stylesheet" href="../styles.css" />
+  </head>
+  <body>
+    <header class="page">
+      <h1>Dataset explorer</h1>
+      <p>
+        Load any of the bundled sources, or paste your own CSV or JSON. The parser infers a
+        schema, the explorer picks an encoding from that schema, and the chart is rebuilt from
+        the same components used everywhere else. <a href="../index.html">All examples</a>
+      </p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>Source</h2>
+        <div class="controls">
+          <label>
+            Dataset
+            <select id="source">
+              <option value="../data/sales.csv">sales.csv</option>
+              <option value="../data/quality.csv">quality.csv</option>
+              <option value="../data/traffic.csv">traffic.csv</option>
+              <option value="../data/targets.json">targets.json</option>
+            </select>
+          </label>
+          <label>
+            Chart
+            <select id="kind">
+              <option value="bar">Bar</option>
+              <option value="line">Line</option>
+              <option value="scatter">Scatter</option>
+              <option value="histogram">Histogram</option>
+            </select>
+          </label>
+          <label>
+            X
+            <select id="x"></select>
+          </label>
+          <label>
+            Y
+            <select id="y"></select>
+          </label>
+          <label>
+            Series
+            <select id="series"></select>
+          </label>
+        </div>
+        <details>
+          <summary class="status">Paste your own CSV or JSON</summary>
+          <textarea
+            id="paste"
+            rows="5"
+            style="width: 100%; margin-top: 10px; font-family: ui-monospace, monospace"
+            placeholder="region,revenue&#10;North,120"
+          ></textarea>
+          <div class="controls" style="margin-top: 8px">
+            <button type="button" id="load-paste">Load pasted data</button>
+          </div>
+        </details>
+        <p class="status" id="schema"></p>
+      </section>
+
+      <section class="card">
+        <h2>Chart</h2>
+        <div class="chart-host" id="chart"></div>
+      </section>
+
+      <section class="card">
+        <h2>Rows</h2>
+        <div id="table"></div>
+      </section>
+    </main>
+
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>
