@@ -22,7 +22,7 @@ export class Pipe {
     return new Pipe(pipeline(...transforms)(this.dataset));
   }
 
-  tap(visitor: (dataset: Dataset) => void): Pipe {
+  tap(visitor: (dataset: Dataset) => void): this {
     visitor(this.dataset);
     return this;
   }
@@ -36,4 +36,4 @@ export class Pipe {
   }
 }
 
-export const from = Pipe.from;
+export const from = (dataset: Dataset): Pipe => Pipe.from(dataset);

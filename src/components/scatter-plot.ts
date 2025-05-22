@@ -52,9 +52,10 @@ export function scatterPlot(container: Element, options: ScatterPlotOptions): Sc
       }
     }
 
-    const rows = options.color
+    const colorField = options.color;
+    const rows = colorField
       ? allRows.filter(
-          (row) => !state.hiddenCategories.includes(toStringKey(row[options.color!] ?? null))
+          (row) => !state.hiddenCategories.includes(toStringKey(row[colorField] ?? null))
         )
       : allRows;
 

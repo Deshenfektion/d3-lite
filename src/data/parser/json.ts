@@ -1,4 +1,4 @@
-import type { ParseIssue, ParseResult, Primitive, Row } from '../../types/data.ts';
+import type { ParseIssue, ParseResult, Row } from '../../types/data.ts';
 import { isPlainObject, isPrimitive } from '../../utils/guards.ts';
 import { createDataset } from '../dataset.ts';
 
@@ -79,12 +79,12 @@ export function normalizeRecords(input: unknown, options: FlattenOptions = {}): 
   const rows: Row[] = [];
   for (const item of input) {
     if (isPlainObject(item)) rows.push(flattenObject(item, options));
-    else if (isPrimitive(item)) rows.push({ value: item as Primitive });
+    else if (isPrimitive(item)) rows.push({ value: item });
   }
   return rows;
 }
 
-export function parseJSON(input: string | unknown, options: ParseJSONOptions = {}): ParseResult {
+export function parseJSON(input: unknown, options: ParseJSONOptions = {}): ParseResult {
   const issues: ParseIssue[] = [];
   let payload: unknown = input;
 

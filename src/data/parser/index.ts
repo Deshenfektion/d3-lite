@@ -26,7 +26,7 @@ export function detectFormat(input: unknown): SourceFormat {
   return tabs > commas ? 'tsv' : 'csv';
 }
 
-export function parse(input: string | unknown, options: ParseOptions = {}): ParseResult {
+export function parse(input: unknown, options: ParseOptions = {}): ParseResult {
   const format = options.format ?? detectFormat(input);
 
   switch (format) {
@@ -49,7 +49,7 @@ export function parse(input: string | unknown, options: ParseOptions = {}): Pars
 }
 
 export function parseAll(
-  sources: readonly { name: string; input: string | unknown; options?: ParseOptions }[]
+  sources: readonly { name: string; input: unknown; options?: ParseOptions }[]
 ): Map<string, ParseResult> {
   const out = new Map<string, ParseResult>();
   for (const entry of sources) {

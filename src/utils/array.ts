@@ -1,6 +1,7 @@
 export function range(start: number, stop?: number, step = 1): number[] {
-  const from = stop === undefined ? 0 : start;
-  const to = stop === undefined ? start : stop;
+  const hasStop = stop !== undefined;
+  const from = hasStop ? start : 0;
+  const to = hasStop ? stop : start;
   if (step === 0 || !Number.isFinite(step)) return [];
   const n = Math.max(0, Math.ceil((to - from) / step));
   const out = new Array<number>(n);
@@ -16,7 +17,10 @@ export function descending(a: number, b: number): number {
   return b < a ? -1 : b > a ? 1 : 0;
 }
 
-export function min<T>(values: Iterable<T>, accessor: (value: T) => number): number | undefined {
+export function min<T>(
+  values: Iterable<T>,
+  accessor: (value: T) => number
+): number | undefined {
   let result: number | undefined;
   for (const value of values) {
     const v = accessor(value);
@@ -25,7 +29,10 @@ export function min<T>(values: Iterable<T>, accessor: (value: T) => number): num
   return result;
 }
 
-export function max<T>(values: Iterable<T>, accessor: (value: T) => number): number | undefined {
+export function max<T>(
+  values: Iterable<T>,
+  accessor: (value: T) => number
+): number | undefined {
   let result: number | undefined;
   for (const value of values) {
     const v = accessor(value);
@@ -58,7 +65,10 @@ export function sum<T>(values: Iterable<T>, accessor: (value: T) => number): num
   return total;
 }
 
-export function mean<T>(values: Iterable<T>, accessor: (value: T) => number): number | undefined {
+export function mean<T>(
+  values: Iterable<T>,
+  accessor: (value: T) => number
+): number | undefined {
   let total = 0;
   let count = 0;
   for (const value of values) {

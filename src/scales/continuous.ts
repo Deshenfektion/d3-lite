@@ -1,6 +1,11 @@
 import { bisectRight } from '../utils/array.ts';
 import { formatAuto, type Formatter } from '../utils/format.ts';
-import { clamp as clampValue, niceDomain, ticks as generateTicks, tickStep } from '../utils/math.ts';
+import {
+  clamp as clampValue,
+  niceDomain,
+  ticks as generateTicks,
+  tickStep,
+} from '../utils/math.ts';
 import { interpolateNumber, type InterpolatorFactory } from '../interpolate/basis.ts';
 import type { ContinuousScale } from './types.ts';
 
@@ -50,7 +55,7 @@ function polymap(
     reinterpolators.push(factory(values[i] as number, values[i + 1] as number));
   }
 
-  const thresholds = keys.slice(1, n) as number[];
+  const thresholds = keys.slice(1, n);
 
   return (value) => {
     const index = clampValue(bisectRight(thresholds, value), 0, n - 1);
@@ -147,16 +152,8 @@ export function createContinuousScale(options: ContinuousOptions = {}): Continuo
   scale.nice = (count = 10): ContinuousScale => {
     const first = domainValues[0] as number;
     const lastValue = domainValues[domainValues.length - 1] as number;
-    const [lo, hi] = niceDomain(
-      transform.forward(first),
-      transform.forward(lastValue),
-      count
-    );
-    domainValues = [
-      transform.inverse(lo),
-      ...domainValues.slice(1, -1),
-      transform.inverse(hi),
-    ];
+    const [lo, hi] = niceDomain(transform.forward(first), transform.forward(lastValue), count);
+    domainValues = [transform.inverse(lo), ...domainValues.slice(1, -1), transform.inverse(hi)];
     invalidate();
     return scale;
   };

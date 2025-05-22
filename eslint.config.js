@@ -16,7 +16,9 @@ export default tseslint.config(
       sourceType: 'module',
       globals: { ...globals.browser, ...globals.node },
       parserOptions: {
-        projectService: true,
+        projectService: {
+          allowDefaultProject: ['*.config.js'],
+        },
         tsconfigRootDir: import.meta.dirname,
       },
     },
@@ -31,6 +33,8 @@ export default tseslint.config(
         { allowNumber: true, allowBoolean: true },
       ],
       '@typescript-eslint/no-non-null-assertion': 'error',
+      '@typescript-eslint/non-nullable-type-assertion-style': 'off',
+      '@typescript-eslint/no-invalid-void-type': 'off',
       '@typescript-eslint/explicit-module-boundary-types': 'off',
       'no-console': ['error', { allow: ['warn', 'error'] }],
       'prefer-const': 'error',

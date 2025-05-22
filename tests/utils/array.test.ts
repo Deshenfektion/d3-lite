@@ -135,7 +135,9 @@ describe('helpers', () => {
   });
 
   it('reads the last element safely', () => {
-    expect(last([1, 2])).toBe(2);
-    expect(last([])).toBeUndefined();
+    const filled: number[] = [1, 2];
+    const empty: number[] = [];
+    expect(last(filled)).toBe(2);
+    expect(last(empty)).toBeUndefined();
   });
 });

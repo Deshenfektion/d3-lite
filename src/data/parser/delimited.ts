@@ -93,7 +93,7 @@ export function tokenizeDelimited(text: string, options: TokenizeOptions = {}): 
           index++;
         }
       } else {
-        field += source[index];
+        field += source.charAt(index);
         index++;
       }
       continue;
@@ -115,7 +115,7 @@ export function tokenizeDelimited(text: string, options: TokenizeOptions = {}): 
       index++;
       if (!hasMore) return rows;
     } else {
-      field += source[index];
+      field += source.charAt(index);
       index++;
     }
   }

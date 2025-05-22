@@ -67,7 +67,7 @@ export function resolveChannel<Out>(spec: ChannelSpec<Out>): ChannelResolver<Out
     return (row) => project(fieldValue(row, field));
   }
 
-  return () => spec as Out;
+  return () => spec;
 }
 
 export function channelDomain(rows: readonly Row[], field: string): string[] {
