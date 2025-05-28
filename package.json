@@ -32,10 +32,10 @@
   },
   "sideEffects": false,
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --config vite.examples.config.ts",
     "build": "vite build && tsc -p tsconfig.build.json",
     "build:examples": "vite build --config vite.examples.config.ts",
-    "preview": "vite preview",
+    "preview": "vite preview --config vite.examples.config.ts",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:coverage": "vitest run --coverage",
