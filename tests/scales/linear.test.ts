@@ -66,7 +66,11 @@ describe('scaleLinear', () => {
   });
 
   it('rounds the domain outward with nice', () => {
-    expect(scaleLinear({ domain: [0.3, 9.4] }).nice().domain()).toEqual([0, 10]);
+    expect(
+      scaleLinear({ domain: [0.3, 9.4] })
+        .nice()
+        .domain()
+    ).toEqual([0, 10]);
   });
 
   it('generates ticks inside the domain', () => {

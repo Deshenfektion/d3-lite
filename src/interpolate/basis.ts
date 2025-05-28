@@ -22,9 +22,14 @@ export function interpolateArray(
   return (t) => parts.map((part) => part(t));
 }
 
-export function interpolateObject<T extends Record<string, number>>(a: T, b: T): Interpolator<T> {
+export function interpolateObject<T extends Record<string, number>>(
+  a: T,
+  b: T
+): Interpolator<T> {
   const keys = Object.keys(a).filter((key) => key in b);
-  const parts = keys.map((key) => [key, interpolateNumber(a[key] as number, b[key] as number)] as const);
+  const parts = keys.map(
+    (key) => [key, interpolateNumber(a[key] as number, b[key] as number)] as const
+  );
   return (t) => {
     const out: Record<string, number> = {};
     for (const [key, part] of parts) out[key] = part(t);

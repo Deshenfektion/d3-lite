@@ -52,9 +52,7 @@ export function barChart(container: Element, options: BarChartOptions): BarChart
     const { space, theme } = context;
     const rows = state.dataset.rows;
     const pivot = pivotSeries(rows, options.x, options.y, options.series);
-    const visibleSeries = pivot.seriesKeys.filter(
-      (key) => !state.hiddenSeries.includes(key)
-    );
+    const visibleSeries = pivot.seriesKeys.filter((key) => !state.hiddenSeries.includes(key));
     const palette = categoricalSlots(pivot.seriesKeys.length, theme.mode);
     const colorFor = (seriesKey: string): string => {
       const index = pivot.seriesKeys.indexOf(seriesKey);
@@ -223,9 +221,7 @@ export function barChart(container: Element, options: BarChartOptions): BarChart
       highlight: null,
       hiddenSeries: [],
     },
-    layers: [
-      (state, context) => group({ key: 'bar-chart' }, build(state, context)),
-    ],
+    layers: [(state, context) => group({ key: 'bar-chart' }, build(state, context))],
   });
 
   return {

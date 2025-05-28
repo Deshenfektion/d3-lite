@@ -165,7 +165,11 @@ describe('areaPath', () => {
 
   it('produces one closed shape per defined segment', () => {
     const path = areaPath(
-      [{ x: 0, y: 1 }, { x: 1, y: Number.NaN }, { x: 2, y: 3 }],
+      [
+        { x: 0, y: 1 },
+        { x: 1, y: Number.NaN },
+        { x: 2, y: 3 },
+      ],
       0
     );
     expect(path.split('Z')).toHaveLength(3);

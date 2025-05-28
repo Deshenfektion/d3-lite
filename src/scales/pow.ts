@@ -39,8 +39,6 @@ export function scalePow(options: PowScaleOptions = {}): ContinuousScale {
   return scale;
 }
 
-export function scaleSqrt(
-  options: Omit<PowScaleOptions, 'exponent'> = {}
-): ContinuousScale {
+export function scaleSqrt(options: Omit<PowScaleOptions, 'exponent'> = {}): ContinuousScale {
   return scalePow({ ...options, exponent: 0.5 });
 }

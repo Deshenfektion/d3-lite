@@ -185,7 +185,10 @@ describe('createTooltip', () => {
     expect(tooltip.visible()).toBe(false);
     expect(tooltip.element.style.opacity).toBe('0');
 
-    tooltip.show({ title: 'North', rows: [{ label: 'Revenue', value: '120' }] }, { x: 10, y: 10 });
+    tooltip.show(
+      { title: 'North', rows: [{ label: 'Revenue', value: '120' }] },
+      { x: 10, y: 10 }
+    );
 
     expect(tooltip.visible()).toBe(true);
     expect(tooltip.element.textContent).toContain('North');
@@ -307,9 +310,9 @@ describe('brush', () => {
 
   it('converts a selection back into domain values', () => {
     const scale = scaleLinear({ domain: [0, 100], range: [0, 200] });
-    expect(
-      selectionToDomain({ x: 20, y: 0, width: 80, height: 10 }, scale, 'x')
-    ).toEqual([10, 50]);
+    expect(selectionToDomain({ x: 20, y: 0, width: 80, height: 10 }, scale, 'x')).toEqual([
+      10, 50,
+    ]);
   });
 
   it('emits brush events while dragging', () => {

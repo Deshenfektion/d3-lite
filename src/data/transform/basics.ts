@@ -79,7 +79,12 @@ function comparePrimitives(a: Primitive, b: Primitive): number {
   if (a === null && b === null) return 0;
   if (a === null) return 1;
   if (b === null) return -1;
-  if (typeof a === 'number' || typeof b === 'number' || a instanceof Date || b instanceof Date) {
+  if (
+    typeof a === 'number' ||
+    typeof b === 'number' ||
+    a instanceof Date ||
+    b instanceof Date
+  ) {
     const na = toNumber(a);
     const nb = toNumber(b);
     if (!Number.isNaN(na) && !Number.isNaN(nb)) return na < nb ? -1 : na > nb ? 1 : 0;

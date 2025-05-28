@@ -37,16 +37,13 @@ export function resolveEncoding(
   return {
     x: spec.x === undefined ? () => Number.NaN : resolveChannel(spec.x),
     y: spec.y === undefined ? () => Number.NaN : resolveChannel(spec.y),
-    color: spec.color === undefined
-      ? () => defaults.color ?? '#2a78d6'
-      : resolveChannel(spec.color),
+    color:
+      spec.color === undefined ? () => defaults.color ?? '#2a78d6' : resolveChannel(spec.color),
     size: spec.size === undefined ? () => defaults.size ?? 8 : resolveChannel(spec.size),
-    opacity: spec.opacity === undefined
-      ? () => defaults.opacity ?? 1
-      : resolveChannel(spec.opacity),
-    shape: spec.shape === undefined
-      ? () => defaults.shape ?? 'circle'
-      : resolveChannel(spec.shape),
+    opacity:
+      spec.opacity === undefined ? () => defaults.opacity ?? 1 : resolveChannel(spec.opacity),
+    shape:
+      spec.shape === undefined ? () => defaults.shape ?? 'circle' : resolveChannel(spec.shape),
     label: spec.label === undefined ? () => '' : resolveChannel(spec.label),
     key: spec.key === undefined ? (_, index) => String(index) : resolveChannel(spec.key),
   };
@@ -65,10 +62,7 @@ export interface EncodedMark {
   readonly index: number;
 }
 
-export function encodeRows(
-  rows: readonly Row[],
-  encoding: ResolvedEncoding
-): EncodedMark[] {
+export function encodeRows(rows: readonly Row[], encoding: ResolvedEncoding): EncodedMark[] {
   const out: EncodedMark[] = new Array<EncodedMark>(rows.length);
   for (let i = 0; i < rows.length; i++) {
     const row = rows[i] as Row;

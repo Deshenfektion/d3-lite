@@ -48,10 +48,7 @@ function distanceToRect(bounds: Rect, x: number, y: number): number {
   return Math.hypot(dx, dy);
 }
 
-export function createQuadtree<T>(
-  bounds: Rect,
-  capacity = DEFAULT_CAPACITY
-): Quadtree<T> {
+export function createQuadtree<T>(bounds: Rect, capacity = DEFAULT_CAPACITY): Quadtree<T> {
   const root: QuadNode<T> = { bounds, points: [] };
   let count = 0;
 
@@ -110,7 +107,11 @@ export function createQuadtree<T>(
       count++;
     },
 
-    find(x: number, y: number, maxDistance = Number.POSITIVE_INFINITY): QuadPoint<T> | undefined {
+    find(
+      x: number,
+      y: number,
+      maxDistance = Number.POSITIVE_INFINITY
+    ): QuadPoint<T> | undefined {
       let best: QuadPoint<T> | undefined;
       let bestDistance = Number.POSITIVE_INFINITY;
 

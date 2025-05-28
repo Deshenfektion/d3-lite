@@ -34,10 +34,7 @@ export interface HoverBehavior<T> extends Dispatcher<HoverEvents<T>> {
 
 const DEFAULT_RADIUS = 32;
 
-export function attachHover<T>(
-  element: Element,
-  options: HoverOptions<T>
-): HoverBehavior<T> {
+export function attachHover<T>(element: Element, options: HoverOptions<T>): HoverBehavior<T> {
   const dispatcher = createDispatcher<HoverEvents<T>>();
   const radius = options.radius ?? DEFAULT_RADIUS;
   const identify = options.identify ?? ((datum: T) => JSON.stringify(datum));

@@ -78,7 +78,8 @@ describe('detectDelimiter', () => {
 });
 
 describe('parseCSV', () => {
-  const csv = 'region,units,active,recorded\nNorth,120,true,2025-03-01\nSouth,,false,2025-03-02';
+  const csv =
+    'region,units,active,recorded\nNorth,120,true,2025-03-01\nSouth,,false,2025-03-02';
 
   it('infers column types', () => {
     const { dataset } = parseCSV(csv);

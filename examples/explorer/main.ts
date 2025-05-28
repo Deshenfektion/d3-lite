@@ -20,7 +20,11 @@ let active: Chart<object> | undefined;
 const select = (id: string): HTMLSelectElement =>
   document.querySelector(`#${id}`) as HTMLSelectElement;
 
-function fillOptions(target: HTMLSelectElement, values: readonly string[], allowNone = false): void {
+function fillOptions(
+  target: HTMLSelectElement,
+  values: readonly string[],
+  allowNone = false
+): void {
   const previous = target.value;
   target.replaceChildren();
   if (allowNone) target.append(element('option', { value: '' }, ['(none)']));
@@ -43,7 +47,10 @@ function rebuildFieldChoices(source: Dataset): void {
   ];
   const kind = select('kind').value as ChartKind;
 
-  const xChoices = kind === 'scatter' || kind === 'line' ? [...numeric, ...categorical] : [...categorical, ...numeric];
+  const xChoices =
+    kind === 'scatter' || kind === 'line'
+      ? [...numeric, ...categorical]
+      : [...categorical, ...numeric];
   fillOptions(select('x'), kind === 'histogram' ? numeric : xChoices);
   fillOptions(select('y'), numeric);
   fillOptions(select('series'), categorical, true);

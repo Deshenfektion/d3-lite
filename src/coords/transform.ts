@@ -76,7 +76,10 @@ export function rescaleX(scale: ContinuousScale, transform: ZoomTransform): Cont
   const range = scale.range();
   const lo = range[0] as number;
   const hi = range[range.length - 1] as number;
-  return next.domain([scale.invert(invertX(transform, lo)), scale.invert(invertX(transform, hi))]);
+  return next.domain([
+    scale.invert(invertX(transform, lo)),
+    scale.invert(invertX(transform, hi)),
+  ]);
 }
 
 export function rescaleY(scale: ContinuousScale, transform: ZoomTransform): ContinuousScale {
@@ -84,5 +87,8 @@ export function rescaleY(scale: ContinuousScale, transform: ZoomTransform): Cont
   const range = scale.range();
   const lo = range[0] as number;
   const hi = range[range.length - 1] as number;
-  return next.domain([scale.invert(invertY(transform, lo)), scale.invert(invertY(transform, hi))]);
+  return next.domain([
+    scale.invert(invertY(transform, lo)),
+    scale.invert(invertY(transform, hi)),
+  ]);
 }

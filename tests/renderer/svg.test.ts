@@ -84,13 +84,9 @@ describe('createSvgRenderer', () => {
   });
 
   it('reorders by moving the minimum number of elements', () => {
-    renderer.render(
-      group({ key: 'root' }, [rect('a', {}), rect('b', {}), rect('c', {})])
-    );
+    renderer.render(group({ key: 'root' }, [rect('a', {}), rect('b', {}), rect('c', {})]));
     renderer.resetStats();
-    renderer.render(
-      group({ key: 'root' }, [rect('c', {}), rect('a', {}), rect('b', {})])
-    );
+    renderer.render(group({ key: 'root' }, [rect('c', {}), rect('a', {}), rect('b', {})]));
 
     expect(renderer.stats.moved).toBeGreaterThan(0);
     expect(renderer.stats.created).toBe(0);

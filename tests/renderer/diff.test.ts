@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest';
 import { attrsEqual, diffChildren, nodeUnchanged } from '@/renderer/diff.ts';
-import { circle, countNodes, findByKey, group, rect, transformToString } from '@/renderer/scene.ts';
+import {
+  circle,
+  countNodes,
+  findByKey,
+  group,
+  rect,
+  transformToString,
+} from '@/renderer/scene.ts';
 
 const node = (key: string, value = 0) => rect(key, { x: value });
 

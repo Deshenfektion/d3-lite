@@ -34,10 +34,7 @@ function dedupeHeader(raw: readonly string[], issues: ParseIssue[]): string[] {
   });
 }
 
-export function parseDelimited(
-  text: string,
-  options: ParseDelimitedOptions = {}
-): ParseResult {
+export function parseDelimited(text: string, options: ParseDelimitedOptions = {}): ParseResult {
   const issues: ParseIssue[] = [];
   const tokenizeOptions: TokenizeOptions = {};
   if (options.delimiter !== undefined) tokenizeOptions.delimiter = options.delimiter;

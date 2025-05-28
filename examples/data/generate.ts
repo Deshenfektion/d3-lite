@@ -20,8 +20,7 @@ const gaussian = (mean: number, deviation: number): number => {
   return mean + deviation * Math.sqrt(-2 * Math.log(u)) * Math.cos(2 * Math.PI * v);
 };
 
-const here = (name: string): string =>
-  fileURLToPath(new URL(name, import.meta.url));
+const here = (name: string): string => fileURLToPath(new URL(name, import.meta.url));
 
 const toCsv = (rows: readonly Record<string, string | number>[]): string => {
   if (rows.length === 0) return '';
@@ -36,8 +35,18 @@ const toCsv = (rows: readonly Record<string, string | number>[]): string => {
 const REGIONS = ['North', 'South', 'East', 'West'];
 const SEGMENTS = ['Enterprise', 'Mid-market', 'SMB'];
 const MONTHS = [
-  '2024-07', '2024-08', '2024-09', '2024-10', '2024-11', '2024-12',
-  '2025-01', '2025-02', '2025-03', '2025-04', '2025-05', '2025-06',
+  '2024-07',
+  '2024-08',
+  '2024-09',
+  '2024-10',
+  '2024-11',
+  '2024-12',
+  '2025-01',
+  '2025-02',
+  '2025-03',
+  '2025-04',
+  '2025-05',
+  '2025-06',
 ];
 
 const regionBase: Record<string, number> = {

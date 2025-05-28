@@ -69,9 +69,7 @@ export function createCartesianSpace(options: CartesianSpaceOptions): CartesianS
     },
 
     containsPlot(point) {
-      return (
-        point.x >= 0 && point.x <= inner.width && point.y >= 0 && point.y <= inner.height
-      );
+      return point.x >= 0 && point.x <= inner.width && point.y >= 0 && point.y <= inner.height;
     },
 
     clampToPlot(point) {

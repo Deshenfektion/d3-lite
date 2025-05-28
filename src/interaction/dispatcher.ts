@@ -11,9 +11,7 @@ export interface Dispatcher<Events extends Record<string, unknown>> {
   clear(): void;
 }
 
-export function createDispatcher<
-  Events extends Record<string, unknown>,
->(): Dispatcher<Events> {
+export function createDispatcher<Events extends Record<string, unknown>>(): Dispatcher<Events> {
   const registry = new Map<keyof Events, Set<Handler<never>>>();
 
   const handlersFor = (type: keyof Events): Set<Handler<never>> => {

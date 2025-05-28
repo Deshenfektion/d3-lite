@@ -43,7 +43,11 @@ body {
   padding: 32px 24px 64px;
   background: var(--plane);
   color: var(--text-primary);
-  font: 14px/1.5 system-ui, -apple-system, 'Segoe UI', sans-serif;
+  font:
+    14px/1.5 system-ui,
+    -apple-system,
+    'Segoe UI',
+    sans-serif;
 }
 
 header.page {

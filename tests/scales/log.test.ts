@@ -41,7 +41,11 @@ describe('scaleLog', () => {
   });
 
   it('snaps the domain to powers of the base', () => {
-    expect(scaleLog({ domain: [3, 700] }).nice().domain()).toEqual([1, 1000]);
+    expect(
+      scaleLog({ domain: [3, 700] })
+        .nice()
+        .domain()
+    ).toEqual([1, 1000]);
   });
 
   it('copies preserving the base', () => {

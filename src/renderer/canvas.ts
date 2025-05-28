@@ -57,8 +57,7 @@ export function createCanvasRenderer(
   const stats = createStats();
   const pathFactory =
     options.pathFactory ??
-    ((d: string): unknown =>
-      typeof Path2D === 'undefined' ? undefined : new Path2D(d));
+    ((d: string): unknown => (typeof Path2D === 'undefined' ? undefined : new Path2D(d)));
 
   const applyPaint = (attrs: SceneNode['attrs']): { fill?: string; stroke?: string } => {
     const fill = stringAttr(attrs, 'fill');

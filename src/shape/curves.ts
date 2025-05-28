@@ -94,8 +94,7 @@ export const curveBasis: CurveRenderer = (sink, points) => {
     return;
   }
 
-  const at = (index: number): Point =>
-    points[Math.max(0, Math.min(n - 1, index))] as Point;
+  const at = (index: number): Point => points[Math.max(0, Math.min(n - 1, index))] as Point;
 
   sink.moveTo(at(0).x, at(0).y);
   for (let i = 0; i < n - 1; i++) {

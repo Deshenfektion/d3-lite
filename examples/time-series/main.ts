@@ -30,12 +30,14 @@ async function main(): Promise<void> {
   const p95 = withTime.rows.map((row) => toNumber(row.latency_p95));
   const requests = withTime.rows.map((row) => toNumber(row.requests));
 
-  document.querySelector('#tiles')?.append(
-    statTile('Samples', String(withTime.rows.length), '30 minute buckets'),
-    statTile('Median p50', `${(mean(p50, (v) => v) ?? 0).toFixed(1)} ms`),
-    statTile('Peak p95', `${Math.max(...p95).toFixed(0)} ms`),
-    statTile('Total requests', si(requests.reduce((sum, value) => sum + value, 0)))
-  );
+  document
+    .querySelector('#tiles')
+    ?.append(
+      statTile('Samples', String(withTime.rows.length), '30 minute buckets'),
+      statTile('Median p50', `${(mean(p50, (v) => v) ?? 0).toFixed(1)} ms`),
+      statTile('Peak p95', `${Math.max(...p95).toFixed(0)} ms`),
+      statTile('Total requests', si(requests.reduce((sum, value) => sum + value, 0)))
+    );
 
   let range: [number, number] | undefined;
   let liveTimer = 0;

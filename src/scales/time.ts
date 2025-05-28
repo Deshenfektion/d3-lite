@@ -20,26 +20,43 @@ const intervals: TimeInterval[] = [
   {
     step: SECOND,
     unit: 'second',
-    floor: (date) => new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes(), date.getSeconds()),
+    floor: (date) =>
+      new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds()
+      ),
     increment: (date, steps) => new Date(date.getTime() + steps * SECOND),
   },
   {
     step: MINUTE,
     unit: 'minute',
-    floor: (date) => new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours(), date.getMinutes()),
+    floor: (date) =>
+      new Date(
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes()
+      ),
     increment: (date, steps) => new Date(date.getTime() + steps * MINUTE),
   },
   {
     step: HOUR,
     unit: 'hour',
-    floor: (date) => new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()),
+    floor: (date) =>
+      new Date(date.getFullYear(), date.getMonth(), date.getDate(), date.getHours()),
     increment: (date, steps) => new Date(date.getTime() + steps * HOUR),
   },
   {
     step: DAY,
     unit: 'day',
     floor: (date) => new Date(date.getFullYear(), date.getMonth(), date.getDate()),
-    increment: (date, steps) => new Date(date.getFullYear(), date.getMonth(), date.getDate() + steps),
+    increment: (date, steps) =>
+      new Date(date.getFullYear(), date.getMonth(), date.getDate() + steps),
   },
   {
     step: MONTH,
@@ -81,7 +98,9 @@ function toMillis(value: Date | number): number {
 }
 
 export function scaleTime(options: TimeScaleOptions = {}): TimeScale {
-  const domain = (options.domain ?? [new Date(2025, 0, 1), new Date(2025, 11, 31)]).map(toMillis);
+  const domain = (options.domain ?? [new Date(2025, 0, 1), new Date(2025, 11, 31)]).map(
+    toMillis
+  );
   const base = createContinuousScale({
     transform: identityTransform,
     domain,

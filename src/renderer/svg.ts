@@ -1,10 +1,5 @@
 import { diffChildren, nodeUnchanged } from './diff.ts';
-import {
-  transformToString,
-  type Attrs,
-  type MarkType,
-  type SceneNode,
-} from './scene.ts';
+import { transformToString, type Attrs, type MarkType, type SceneNode } from './scene.ts';
 import { createStats, type RenderStats, type Renderer } from './types.ts';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';

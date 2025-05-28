@@ -24,12 +24,14 @@ async function main(): Promise<void> {
   const avgYield = mean(yields, (v) => v) ?? 0;
   const outOfSpec = defectRates.filter((value) => value > avgDefect + 2 * sigma).length;
 
-  document.querySelector('#tiles')?.append(
-    statTile('Batches', String(dataset.rows.length)),
-    statTile('Mean defect rate', `${avgDefect.toFixed(2)}%`, `σ ${sigma.toFixed(2)}`),
-    statTile('Mean yield', `${avgYield.toFixed(1)}%`),
-    statTile('Beyond 2σ', String(outOfSpec), 'defect rate outliers')
-  );
+  document
+    .querySelector('#tiles')
+    ?.append(
+      statTile('Batches', String(dataset.rows.length)),
+      statTile('Mean defect rate', `${avgDefect.toFixed(2)}%`, `σ ${sigma.toFixed(2)}`),
+      statTile('Mean yield', `${avgYield.toFixed(1)}%`),
+      statTile('Beyond 2σ', String(outOfSpec), 'defect rate outliers')
+    );
 
   const distributionHost = document.querySelector('#distribution');
   const readout = document.querySelector('#bin-readout');

@@ -20,7 +20,9 @@ export function isMissing(raw: string, missingTokens: ReadonlySet<string>): bool
   return missingTokens.has(raw.trim().toLowerCase());
 }
 
-export function buildMissingSet(tokens: readonly string[] = DEFAULT_MISSING_TOKENS): Set<string> {
+export function buildMissingSet(
+  tokens: readonly string[] = DEFAULT_MISSING_TOKENS
+): Set<string> {
   return new Set(tokens.map((token) => token.toLowerCase()));
 }
 

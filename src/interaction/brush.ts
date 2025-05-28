@@ -76,8 +76,7 @@ export function attachBrush(element: Element, options: BrushOptions): BrushBehav
         : axis === 'y'
           ? { x: extent.x, y: rect.y, width: extent.width, height: rect.height }
           : rect;
-    const empty =
-      (axis === 'y' ? constrained.height : constrained.width) < minSize;
+    const empty = (axis === 'y' ? constrained.height : constrained.width) < minSize;
     return { rect: constrained, empty };
   };
 

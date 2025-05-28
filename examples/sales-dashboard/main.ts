@@ -59,20 +59,22 @@ async function main(): Promise<void> {
   const latestRevenue = revenueIn(latest);
   const change = previous ? (latestRevenue / revenueIn(previous) - 1) * 100 : 0;
 
-  document.querySelector('#tiles')?.append(
-    statTile('Total revenue', money(totalRevenue * 1000), `${months.length} months`),
-    statTile('Units shipped', totalUnits.toLocaleString('en-US')),
-    statTile(
-      `Revenue ${latest}`,
-      money(latestRevenue * 1000),
-      `${change >= 0 ? '+' : ''}${change.toFixed(1)}% vs ${previous}`
-    ),
-    statTile(
-      'Data quality',
-      validation.valid ? 'Passing' : `${validation.problems.length} issues`,
-      `${issues.length} parser notes`
-    )
-  );
+  document
+    .querySelector('#tiles')
+    ?.append(
+      statTile('Total revenue', money(totalRevenue * 1000), `${months.length} months`),
+      statTile('Units shipped', totalUnits.toLocaleString('en-US')),
+      statTile(
+        `Revenue ${latest}`,
+        money(latestRevenue * 1000),
+        `${change >= 0 ? '+' : ''}${change.toFixed(1)}% vs ${previous}`
+      ),
+      statTile(
+        'Data quality',
+        validation.valid ? 'Passing' : `${validation.problems.length} issues`,
+        `${issues.length} parser notes`
+      )
+    );
 
   const byRegionHost = document.querySelector('#by-region');
   if (byRegionHost) {
@@ -113,10 +115,7 @@ async function main(): Promise<void> {
   const monthlyHost = document.querySelector('#monthly');
   if (monthlyHost) {
     const monthly = pipeline(
-      groupBy(
-        ['month', 'region'],
-        [{ as: 'revenue', op: 'sum', field: 'revenue' }]
-      ),
+      groupBy(['month', 'region'], [{ as: 'revenue', op: 'sum', field: 'revenue' }]),
       sortBy(['month'])
     )(sales);
 
@@ -197,7 +196,10 @@ async function main(): Promise<void> {
 
   const attainmentHost = document.querySelector('#attainment');
   if (attainmentHost) {
-    const actuals = groupBy(['region'], [{ as: 'revenue', op: 'sum', field: 'revenue' }])(sales);
+    const actuals = groupBy(
+      ['region'],
+      [{ as: 'revenue', op: 'sum', field: 'revenue' }]
+    )(sales);
     const targetBy = new Map(
       targets.rows.map((row) => [toStringKey(row.region), toNumber(row.quarterlyTarget)])
     );

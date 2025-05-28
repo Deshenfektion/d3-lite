@@ -338,9 +338,9 @@ describe('histogram', () => {
 
   it('renders bins as bars', () => {
     const chart = histogram(host, { data: readings, field: 'value', binCount: 5 });
-    expect(keysOf(chart.scene()).filter((key) => key.startsWith('bin-')).length).toBeGreaterThan(
-      0
-    );
+    expect(
+      keysOf(chart.scene()).filter((key) => key.startsWith('bin-')).length
+    ).toBeGreaterThan(0);
   });
 
   it('exposes the computed bins', () => {

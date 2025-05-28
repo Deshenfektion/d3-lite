@@ -7,7 +7,10 @@ export interface CreateDatasetOptions extends InferSchemaOptions {
   schema?: Schema;
 }
 
-export function createDataset(rows: readonly Row[], options: CreateDatasetOptions = {}): Dataset {
+export function createDataset(
+  rows: readonly Row[],
+  options: CreateDatasetOptions = {}
+): Dataset {
   const schema = options.schema ?? inferSchema(rows, options);
   const dataset: Dataset = options.source
     ? { rows, schema, source: options.source }

@@ -45,7 +45,8 @@ function collectTicks(options: AxisOptions): Tick[] {
 
   const count = options.tickCount ?? 6;
   const values = scale.ticks(count);
-  const format = (options.format as ((value: number) => string) | undefined) ?? scale.tickFormat(count);
+  const format =
+    (options.format as ((value: number) => string) | undefined) ?? scale.tickFormat(count);
   return values.map((value) => ({
     key: String(value),
     position: scale(value),
@@ -114,9 +115,7 @@ export function axis(key: string, options: AxisOptions): SceneNode {
         fill: theme.textSecondary,
         'font-size': 12,
         'text-anchor': 'middle',
-        ...(horizontal
-          ? {}
-          : { transform: `rotate(-90, ${sign * offset}, ${mid})` }),
+        ...(horizontal ? {} : { transform: `rotate(-90, ${sign * offset}, ${mid})` }),
       })
     );
   }

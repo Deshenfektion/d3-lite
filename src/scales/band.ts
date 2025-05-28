@@ -20,7 +20,11 @@ interface BandState {
   round: boolean;
 }
 
-function buildPositions(state: BandState): { positions: Map<string, number>; bandwidth: number; step: number } {
+function buildPositions(state: BandState): {
+  positions: Map<string, number>;
+  bandwidth: number;
+  step: number;
+} {
   const n = state.domain.length;
   const [r0, r1] = state.range;
   const reverse = r1 < r0;
@@ -63,7 +67,8 @@ export function scaleBand(options: BandScaleOptions = {}): BandScale {
     computed = buildPositions(state);
   };
 
-  const scale = ((value: string): number => computed.positions.get(value) ?? Number.NaN) as BandScale;
+  const scale = ((value: string): number =>
+    computed.positions.get(value) ?? Number.NaN) as BandScale;
 
   scale.domain = ((values?: Iterable<string>) => {
     if (values === undefined) return [...state.domain];
@@ -139,9 +144,7 @@ export function scaleBand(options: BandScaleOptions = {}): BandScale {
   return scale;
 }
 
-export function scalePoint(
-  options: Omit<BandScaleOptions, 'paddingInner'> = {}
-): BandScale {
+export function scalePoint(options: Omit<BandScaleOptions, 'paddingInner'> = {}): BandScale {
   return scaleBand({ ...options, paddingInner: 1, paddingOuter: options.padding ?? 0 });
 }
 

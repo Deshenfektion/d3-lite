@@ -25,15 +25,15 @@ export interface PointerSource extends Dispatcher<PointerEvents> {
   detach(): void;
 }
 
-export function localPoint(element: Element, event: { clientX: number; clientY: number }): Point {
+export function localPoint(
+  element: Element,
+  event: { clientX: number; clientY: number }
+): Point {
   const bounds = element.getBoundingClientRect();
   return { x: event.clientX - bounds.left, y: event.clientY - bounds.top };
 }
 
-export function attachPointer(
-  element: Element,
-  options: PointerOptions = {}
-): PointerSource {
+export function attachPointer(element: Element, options: PointerOptions = {}): PointerSource {
   const dispatcher = createDispatcher<PointerEvents>();
   const offset = options.offset ?? { x: 0, y: 0 };
   const threshold = options.moveThreshold ?? 0;

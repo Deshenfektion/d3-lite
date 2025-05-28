@@ -157,7 +157,9 @@ describe('aggregation', () => {
 
   it('returns null when a group has no numeric values', () => {
     const empty = createDataset([{ a: null }]);
-    expect(summarize([{ as: 'total', op: 'sum', field: 'a' }])(empty).rows[0]!.total).toBeNull();
+    expect(
+      summarize([{ as: 'total', op: 'sum', field: 'a' }])(empty).rows[0]!.total
+    ).toBeNull();
   });
 
   it('counts by key', () => {

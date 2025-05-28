@@ -53,10 +53,7 @@ export function legend(key: string, options: LegendOptions): SceneNode {
     );
   });
 
-  return group(
-    { key, transform: { x: options.x ?? 0, y: options.y ?? 0, k: 1 } },
-    children
-  );
+  return group({ key, transform: { x: options.x ?? 0, y: options.y ?? 0, k: 1 } }, children);
 }
 
 export interface ValueLabelOptions {

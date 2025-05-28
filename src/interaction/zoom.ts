@@ -41,10 +41,7 @@ export function zoomAtPoint(
   factor: number,
   options: ZoomOptions
 ): ZoomTransform {
-  return settle(
-    scaleAbout(current, factor, focus, options.scaleExtent ?? [1, 8]),
-    options
-  );
+  return settle(scaleAbout(current, factor, focus, options.scaleExtent ?? [1, 8]), options);
 }
 
 export function attachZoom(element: Element, options: ZoomOptions): ZoomBehavior {

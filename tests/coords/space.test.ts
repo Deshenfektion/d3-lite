@@ -1,9 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import {
-  createCartesianSpace,
-  estimateLeftMargin,
-  resolveMargin,
-} from '@/coords/space.ts';
+import { createCartesianSpace, estimateLeftMargin, resolveMargin } from '@/coords/space.ts';
 import {
   applyPoint,
   constrain,

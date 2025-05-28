@@ -23,11 +23,7 @@ export interface BarMarkOptions {
   readonly opacity?: number | ((key: string) => number);
 }
 
-function resolveColor(
-  color: BarMarkOptions['color'],
-  key: string,
-  index: number
-): string {
+function resolveColor(color: BarMarkOptions['color'], key: string, index: number): string {
   return typeof color === 'function' ? color(key, index) : color;
 }
 
@@ -233,9 +229,7 @@ export function pointMarks(key: string, options: PointMarkOptions): SceneNode {
     const shared = {
       fill,
       ...(options.opacity === undefined ? {} : { 'fill-opacity': options.opacity }),
-      ...(options.ring === false
-        ? {}
-        : { stroke: options.theme.surface, 'stroke-width': 2 }),
+      ...(options.ring === false ? {} : { stroke: options.theme.surface, 'stroke-width': 2 }),
     };
 
     if (symbol === 'circle') {

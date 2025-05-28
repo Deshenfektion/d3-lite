@@ -44,14 +44,22 @@ export function dataTable(
   rows: readonly (readonly (string | number)[])[],
   numericFrom = 1
 ): HTMLElement {
-  const head = element('tr', {}, headers.map((label, index) =>
-    element('th', index >= numericFrom ? { class: 'num' } : {}, [label])
-  ));
+  const head = element(
+    'tr',
+    {},
+    headers.map((label, index) =>
+      element('th', index >= numericFrom ? { class: 'num' } : {}, [label])
+    )
+  );
 
   const body = rows.map((row) =>
-    element('tr', {}, row.map((cell, index) =>
-      element('td', index >= numericFrom ? { class: 'num' } : {}, [String(cell)])
-    ))
+    element(
+      'tr',
+      {},
+      row.map((cell, index) =>
+        element('td', index >= numericFrom ? { class: 'num' } : {}, [String(cell)])
+      )
+    )
   );
 
   return element('div', { class: 'table-scroll' }, [

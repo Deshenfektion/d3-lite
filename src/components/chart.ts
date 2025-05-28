@@ -70,18 +70,15 @@ export function createChart<S extends object>(
       const node = layer(state, context);
       if (node) children.push(node);
     }
-    return group(
-      { key: 'chart-root', attrs: { class: 'd3l-root' } },
-      [
-        group(
-          {
-            key: 'plot-area',
-            transform: { x: space.plot.x, y: space.plot.y, k: 1 },
-          },
-          children
-        ),
-      ]
-    );
+    return group({ key: 'chart-root', attrs: { class: 'd3l-root' } }, [
+      group(
+        {
+          key: 'plot-area',
+          transform: { x: space.plot.x, y: space.plot.y, k: 1 },
+        },
+        children
+      ),
+    ]);
   };
 
   const draw = (state: S): void => {
